@@ -32,5 +32,4 @@ async def handle_menu_option(event):
                 logging.info(f"Resposta enviada para a opção {option}")
                 return
 
-    logging.info("Nenhuma palavra-chave correspondente encontrada. Enviando resposta inválida.")
-    await event.respond("Opção inválida. Por favor, escolha um número do menu.")
+    logging.info("Nenhuma palavra-chave correspondente encontrada. Nenhuma ação tomada.")

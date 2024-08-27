@@ -3,7 +3,8 @@ from config import SUPPORT_IDS
 
 # Dicionário para armazenar a última interação com o menu para cada usuário
 user_last_interaction = {}
-user_last_message_id = {}  # Novo dicionário para armazenar o ID da última mensagem enviada pelo bot
+user_last_message_id = {}  # Armazena o ID da última mensagem enviada pelo bot
+user_fixed_menu_id = {}  # Novo dicionário para armazenar o ID do menu fixo
 
 # Configurações do reset
 RESET_INTERVAL = timedelta(hours=24)
@@ -35,11 +36,25 @@ def get_last_message_id(user_id):
 
 async def delete_last_message(client, user_id):
     """
-    Exclui a última mensagem enviada pelo bot para o usuário.
+    Exclui a última mensagem enviada pelo bot para o usuário, exceto a mensagem do menu fixo.
     """
     last_message_id = get_last_message_id(user_id)
-    if last_message_id:
+    fixed_menu_id = user_fixed_menu_id.get(user_id)
+    
+    if last_message_id and last_message_id != fixed_menu_id:  # Não exclui o menu fixo
         try:
             await client.delete_messages(user_id, last_message_id)
         except Exception as e:
             logging.error(f"Erro ao excluir a última mensagem: {e}")
+
+def track_fixed_menu(user_id, message_id):
+    """
+    Armazena o ID da mensagem do menu fixo.
+    """
+    user_fixed_menu_id[user_id] = message_id
+
+def get_fixed_menu_id(user_id):
+    """
+    Retorna o ID da mensagem do menu fixo.
+    """
+    return user_fixed_menu_id.get(user_id)

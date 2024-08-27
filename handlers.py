@@ -1,34 +1,46 @@
 import logging
 from telethon import events
+from telethon.tl.types import User, Channel  # Importar os tipos diretamente
 from messages import WELCOME_MESSAGE
 from menu import show_menu, handle_menu_option
-from utils import check_reset, is_message_from_support, track_last_message, delete_last_message
+from utils import (
+    check_reset,
+    is_message_from_support,
+    track_last_message,
+    delete_last_message,
+    track_fixed_menu,
+    get_fixed_menu_id
+)
 
 def register_handlers(client):
     @client.on(events.NewMessage)
     async def handle_message(event):
         logging.info(f"Nova mensagem recebida de {event.sender_id}: {event.message.message}")
 
-        # Ignora mensagens enviadas pelo suporte
-        if is_message_from_support(event):
-            logging.info("Mensagem do suporte ignorada.")
+        # Ignora mensagens enviadas pelo suporte ou que não são de usuários
+        if is_message_from_support(event) or not await is_user_message(event):
+            logging.info("Mensagem de bot, canal, ou grupo ignorada.")
             return
 
         user_id = event.sender_id
 
-        # Excluir a última mensagem do bot, se existir
-        await delete_last_message(client, user_id)  # A função delete_last_message agora é assíncrona
+        # Excluir a última mensagem do bot, se existir (exceto o menu fixo)
+        await delete_last_message(client, user_id)
 
-        # Verifica se o usuário deve receber a mensagem de boas-vindas
+        # Verifica se o usuário deve receber a mensagem de boas-vindas e exibir o menu fixo
         if check_reset(user_id):
             sender = await event.get_sender()
             first_name = sender.first_name if sender.first_name else "Usuário"
             welcome_message = await event.respond(WELCOME_MESSAGE.format(first_name))
             logging.info("Mensagem de boas-vindas enviada.")
             track_last_message(user_id, welcome_message.id)  # Rastreia a última mensagem
-            menu_message = await show_menu(event)
-            logging.info("Menu exibido.")
-            track_last_message(user_id, menu_message.id)  # Rastreia a última mensagem
+
+            # Exibe o menu fixo apenas uma vez
+            fixed_menu_id = get_fixed_menu_id(user_id)
+            if not fixed_menu_id:
+                menu_message_user = await show_menu(event)
+                logging.info("Menu fixo exibido no chat do usuário.")
+                track_fixed_menu(user_id, menu_message_user.id)  # Rastreia o ID do menu fixo no chat do usuário
         else:
             if event.message.message.lower() == 'menu':
                 menu_message = await show_menu(event)
@@ -39,3 +51,23 @@ def register_handlers(client):
                 logging.info("Opção de menu tratada.")
                 if option_message:  # Verifica se houve uma resposta
                     track_last_message(user_id, option_message.id)  # Rastreia a última mensagem
+
+async def is_user_message(event):
+    """
+    Verifica se a mensagem é de um usuário (não bot, não canal, não grupo).
+    """
+    try:
+        sender = await event.get_sender()
+
+        # Verifica se é um usuário real
+        if isinstance(sender, User):
+            return not sender.bot  # Retorna True se não for um bot
+
+        # Verifica se é um canal ou grupo
+        if isinstance(sender, Channel):
+            return False  # Ignora canais e grupos
+
+        return False
+    except Exception as e:
+        logging.error(f"Erro ao verificar tipo de entidade: {e}")
+        return False

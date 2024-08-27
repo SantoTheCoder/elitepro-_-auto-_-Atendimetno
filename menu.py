@@ -1,3 +1,5 @@
+# menu.py
+import logging
 from messages import MENU_MESSAGE, OPTION_RESPONSES
 
 # Dicionário com palavras-chave para cada opção do menu
@@ -18,13 +20,17 @@ async def show_menu(event):
 
 async def handle_menu_option(event):
     message_text = event.message.message.strip().lower()
+    logging.info(f"Processando a mensagem do menu: {message_text}")
 
     # Verificar todas as palavras-chave
     for option, keywords in KEYWORDS.items():
         if any(keyword.lower() in message_text for keyword in keywords):
+            logging.info(f"Palavra-chave encontrada: {keywords} para a opção {option}")
             response = OPTION_RESPONSES.get(option)
             if response:
                 await event.respond(response)
+                logging.info(f"Resposta enviada para a opção {option}")
                 return
 
+    logging.info("Nenhuma palavra-chave correspondente encontrada. Enviando resposta inválida.")
     await event.respond("Opção inválida. Por favor, escolha um número do menu.")

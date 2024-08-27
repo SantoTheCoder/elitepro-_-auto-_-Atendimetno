@@ -13,7 +13,9 @@ Mas antes disso, descubra mais sobre nossos produtos e vantagens! Explore tudo a
 ---
 
 🚀 **Aqui está o nosso **Menu Principal** para você navegar e encontrar tudo o que precisa. Basta selecionar a opção desejada e seguir as instruções! 👇**
+"""
 
+MENU_MESSAGE = """
 1. **Comprar** 🛒
 2. **Referência** 📑
 3. **Como Funciona** 🛠️

@@ -1,4 +1,3 @@
-#menu.py
 import logging
 from messages import MENU_MESSAGE, OPTION_RESPONSES
 
@@ -14,7 +13,8 @@ KEYWORDS = {
 }
 
 async def show_menu(event):
-    await event.respond(MENU_MESSAGE)
+    menu_message = await event.respond(MENU_MESSAGE)
+    return menu_message  # Retorna a mensagem para rastrear o ID
 
 async def handle_menu_option(event):
     message_text = event.message.message.strip().lower()
@@ -26,8 +26,9 @@ async def handle_menu_option(event):
             logging.info(f"Palavra-chave encontrada: {keywords} para a opção {option}")
             response = OPTION_RESPONSES.get(option)
             if response:
-                await event.respond(response)
+                option_message = await event.respond(response)
                 logging.info(f"Resposta enviada para a opção {option}")
-                return
+                return option_message  # Retorna a mensagem para rastrear o ID
 
     logging.info("Nenhuma palavra-chave correspondente encontrada. Nenhuma ação tomada.")
+    return None  # Retorna None se nenhuma mensagem foi enviada

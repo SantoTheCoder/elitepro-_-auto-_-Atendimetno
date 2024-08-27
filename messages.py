@@ -37,8 +37,6 @@ Você pode adquirir seu material com garantia de qualidade absoluta através do 
 Se tiver dúvidas sobre como funciona, nossas referências, dicas de uso e muito mais, basta escrever **Menu** e selecionar a opção desejada. ✅
 
 ========================
-
-` 1. Comprar 🛒 `  |  ` 2. Troca de Material 📦 `  |  ` 3. Referência 📑 `  |  ` 4. Como Funciona? 🔧 `  |  ` 5. Dicas 💡 `  |  ` 6. É Seguro? 🛡 `  |  ` 7. Falar com Suporte 📞 `
 """,
     "2": """
 📦 **Troca de Material** 📦
@@ -56,8 +54,6 @@ Se tiver dúvidas sobre como funciona, nossas referências, dicas de uso e muito
 **Fácil, não é?** 😃 Após isso, nossa equipe de suporte ágil e dedicada confirmará sua solicitação e, rapidamente, você receberá um material **novo e testado manualmente**. Assim, você tem a certeza de que está obtendo exatamente o que contratou, pronto para uso imediato. 🎯🛡️
 
 ========================
-
-` 1. Comprar 🛒 `  |  ` 2. Troca de Material 📦 `  |  ` 3. Referência 📑 `  |  ` 4. Como Funciona? 🔧 `  |  ` 5. Dicas 💡 `  |  ` 6. É Seguro? 🛡 `  |  ` 7. Falar com Suporte 📞 `
 """,
     "3": """
 **📑 Referências**
@@ -67,12 +63,6 @@ Se tiver dúvidas sobre como funciona, nossas referências, dicas de uso e muito
 Acesse nosso canal 👉 **[ElitePRO_Store](https://t.me/ElitePRO_Store)** 👈 e veja por si mesmo as inúmeras referências de nossos produtos! 📦✨ Todos os dias, compartilhamos feedbacks e avaliações de clientes satisfeitos. Não perca a oportunidade de comprovar a qualidade e a confiabilidade do nosso material. Venha, faça a compra que você tanto deseja e junte-se aos nossos clientes felizes! 🚀💳
 
 ========================
-
-🔄 **` 1. Comprar 🛒 `  |  ` 2. Troca de Material 📦 `  |  ` 3. Referência 📑 `  |  ` 4. Como Funciona? 🔧 `  |  ` 5. Dicas 💡 `  |  ` 6. É Seguro? 🛡 `  |  ` 7. Falar com Suporte 📞 `**
-
-========================
-
-Agora o link está destacado, fácil de clicar e chamando mais atenção!
 """,
     "4": """
 🔧 **Como Funciona?**
@@ -105,8 +95,6 @@ Escolha o nível de cartão que melhor se adapta às suas necessidades financeir
 👉 **Compre suas infocc aqui:** [@ElitePRO_Store_Bot](https://t.me/ElitePRO_Store_Bot) 💳 💖
 
 ========================
-
-` 1. Comprar 🛒 `  |  ` 2. Troca de Material 📦 `  |  ` 3. Referência 📑 `  |  ` 4. Como Funciona? 🔧 `  |  ` 5. Dicas 💡 `  |  ` 6. É Seguro? 🛡 `  |  ` 7. Falar com Suporte 📞 `
 """,
     "5": """
 **💡 Dicas**
@@ -116,8 +104,6 @@ Escolha o nível de cartão que melhor se adapta às suas necessidades financeir
 Acesse nosso canal de dicas personalizadas 👉 **[ElitePROCC_Dicas](https://t.me/ElitePROCC_Dicas)** 👈 e fique por dentro de todas as informações sobre CCs, segurança, dicas para aprovação e muito mais! Não perca essa oportunidade de aprimorar seus conhecimentos e garantir sucesso em suas compras! 📚💡
 
 ========================
-
-` 1. Comprar 🛒 `  |  ` 2. Troca de Material 📦 `  |  ` 3. Referência 📑 `  |  ` 4. Como Funciona? 🔧 `  |  ` 5. Dicas 💡 `  |  ` 6. É Seguro? 🛡 `  |  ` 7. Falar com Suporte 📞 `
 """,
     "6": """
 **🔐 Segurança ao Usar CCs**
@@ -138,8 +124,6 @@ O banco geralmente pede investigação junto à polícia quando a fraude é gran
 Ainda assim, pode haver problemas com valores baixos? SIM. Um exemplo é você fazer várias compras no iFood sempre no mesmo restaurante, com cartões diversos. O restaurante saberá dos estornos. Isso não será bom para você. Evite comprar sempre no mesmo lugar e com muita frequência. Isso se chama DROP QUEIMADO.
 
 ========================
-
-` 1. Comprar 🛒 `  |  ` 2. Troca de Material 📦 `  |  ` 3. Referência 📑 `  |  ` 4. Como Funciona? 🔧 `  |  ` 5. Dicas 💡 `  |  ` 6. É Seguro? 🛡 `  |  ` 7. Falar com Suporte 📞 `
 """,
     "7": """
 **Falar com Suporte** 📞                                                                              

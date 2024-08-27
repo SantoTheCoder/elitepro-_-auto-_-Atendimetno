@@ -1,6 +1,6 @@
 import logging
 from telethon import events
-from telethon.tl.types import User  # Importar o tipo User diretamente
+from telethon.tl.types import User
 from messages import MENU_MESSAGE, WELCOME_MESSAGE
 from menu import show_menu, handle_menu_option
 from utils import (
@@ -32,7 +32,7 @@ def register_handlers(client):
         if check_reset(user_id):
             sender = await event.get_sender()
             first_name = sender.first_name if sender.first_name else "Usuário"
-            welcome_message = await event.respond(WELCOME_MESSAGE.format(first_name))
+            welcome_message = await event.respond(WELCOME_MESSAGE.format(first_name), reply_to=event.message.id)
             logging.info("Mensagem de boas-vindas enviada.")
             track_last_message(user_id, welcome_message.id)  # Rastreia a última mensagem
 
@@ -58,7 +58,7 @@ async def show_and_pin_menu(event, client):
     """
     Exibe e fixa o menu no chat do usuário.
     """
-    menu_message = await event.respond(MENU_MESSAGE)
+    menu_message = await event.respond(MENU_MESSAGE, reply_to=event.message.id)
     await client.pin_message(event.chat_id, menu_message.id, notify=False)  # Fixa a mensagem no chat do usuário
     return menu_message
 

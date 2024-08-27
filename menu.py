@@ -14,7 +14,7 @@ KEYWORDS = {
 }
 
 async def show_menu(event):
-    menu_message = await event.respond(MENU_MESSAGE)
+    menu_message = await event.respond(MENU_MESSAGE, reply_to=event.message.id)
     return menu_message  # Retorna a mensagem para rastrear o ID
 
 async def handle_menu_option(event):
@@ -31,7 +31,7 @@ async def handle_menu_option(event):
             logging.info(f"Palavra-chave encontrada: {keywords} para a opção {option}")
             response = OPTION_RESPONSES.get(option)
             if response:
-                option_message = await event.respond(response)
+                option_message = await event.respond(response, reply_to=event.message.id)
                 logging.info(f"Resposta enviada para a opção {option}")
                 
                 # Rastreia a mensagem do número selecionado e a resposta associada

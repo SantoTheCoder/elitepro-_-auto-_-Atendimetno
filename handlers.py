@@ -9,7 +9,8 @@ from utils import (
     track_last_message,
     delete_last_message,
     track_fixed_menu,
-    get_fixed_menu_id
+    get_fixed_menu_id,
+    track_last_option_message
 )
 
 def register_handlers(client):
@@ -50,7 +51,8 @@ def register_handlers(client):
                 option_message = await handle_menu_option(event)
                 logging.info("Opção de menu tratada.")
                 if option_message:  # Verifica se houve uma resposta
-                    track_last_message(user_id, option_message.id)  # Rastreia a última mensagem
+                    track_last_message(user_id, event.message.id)  # Rastreia o número da seleção do usuário
+                    track_last_option_message(user_id, option_message.id)  # Rastreia a mensagem de resposta do menu
 
 async def show_and_pin_menu(event, client):
     """

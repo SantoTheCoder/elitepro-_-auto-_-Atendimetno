@@ -1,5 +1,6 @@
 import logging
 from messages import MENU_MESSAGE, OPTION_RESPONSES
+from utils import delete_last_message, track_last_message, track_last_option_message
 
 # Dicionário com palavras-chave para cada opção do menu
 KEYWORDS = {
@@ -17,8 +18,12 @@ async def show_menu(event):
     return menu_message  # Retorna a mensagem para rastrear o ID
 
 async def handle_menu_option(event):
+    user_id = event.sender_id
     message_text = event.message.message.strip().lower()
     logging.info(f"Processando a mensagem do menu: {message_text}")
+
+    # Exclui a última mensagem antes de responder a nova opção
+    await delete_last_message(event.client, user_id)
 
     # Verificar todas as palavras-chave, priorizando combinações mais longas e específicas
     for option, keywords in KEYWORDS.items():
@@ -28,6 +33,11 @@ async def handle_menu_option(event):
             if response:
                 option_message = await event.respond(response)
                 logging.info(f"Resposta enviada para a opção {option}")
+                
+                # Rastreia a mensagem do número selecionado e a resposta associada
+                track_last_message(user_id, event.message.id)  # Rastreia o número da seleção
+                track_last_option_message(user_id, option_message.id)  # Rastreia a mensagem de resposta
+                
                 return option_message  # Retorna a mensagem para rastrear o ID
 
     logging.info("Nenhuma palavra-chave correspondente encontrada. Nenhuma ação tomada.")

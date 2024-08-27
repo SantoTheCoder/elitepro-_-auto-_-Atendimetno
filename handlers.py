@@ -1,7 +1,7 @@
 import logging
 from telethon import events
-from telethon.tl.types import User, Channel  # Importar os tipos diretamente
-from messages import WELCOME_MESSAGE
+from telethon.tl.types import User  # Importar o tipo User diretamente
+from messages import MENU_MESSAGE, WELCOME_MESSAGE
 from menu import show_menu, handle_menu_option
 from utils import (
     check_reset,
@@ -35,11 +35,11 @@ def register_handlers(client):
             logging.info("Mensagem de boas-vindas enviada.")
             track_last_message(user_id, welcome_message.id)  # Rastreia a última mensagem
 
-            # Exibe o menu fixo apenas uma vez
+            # Exibe e fixa o menu fixo apenas uma vez
             fixed_menu_id = get_fixed_menu_id(user_id)
             if not fixed_menu_id:
-                menu_message_user = await show_menu(event)
-                logging.info("Menu fixo exibido no chat do usuário.")
+                menu_message_user = await show_and_pin_menu(event, client)
+                logging.info("Menu fixo exibido e fixado no chat do usuário.")
                 track_fixed_menu(user_id, menu_message_user.id)  # Rastreia o ID do menu fixo no chat do usuário
         else:
             if event.message.message.lower() == 'menu':
@@ -52,6 +52,14 @@ def register_handlers(client):
                 if option_message:  # Verifica se houve uma resposta
                     track_last_message(user_id, option_message.id)  # Rastreia a última mensagem
 
+async def show_and_pin_menu(event, client):
+    """
+    Exibe e fixa o menu no chat do usuário.
+    """
+    menu_message = await event.respond(MENU_MESSAGE)
+    await client.pin_message(event.chat_id, menu_message.id, notify=False)  # Fixa a mensagem no chat do usuário
+    return menu_message
+
 async def is_user_message(event):
     """
     Verifica se a mensagem é de um usuário (não bot, não canal, não grupo).
@@ -62,10 +70,6 @@ async def is_user_message(event):
         # Verifica se é um usuário real
         if isinstance(sender, User):
             return not sender.bot  # Retorna True se não for um bot
-
-        # Verifica se é um canal ou grupo
-        if isinstance(sender, Channel):
-            return False  # Ignora canais e grupos
 
         return False
     except Exception as e:

@@ -1,12 +1,9 @@
-# messages.py
 WELCOME_MESSAGE = """
 Bom dia, {}! 🦾
 
 Seja bem-vindo à **ELITEPRO**! Aqui, seu dinheiro vale mais! 💵💎
 
 Você está falando comigo porque quer fazer umas compras, certo? 🛒😎
-
-Abaixo, você encontrará as perguntas mais frequentes. Basta seguir o menu. Se precisar de ajuda, envie "Falar com atendente" que logo vou estar aqui para te ajudar. 🚀
 
 Mas antes disso, descubra mais sobre nossos produtos e vantagens! Explore tudo abaixo! 👇🦾
 
@@ -17,21 +14,20 @@ Mas antes disso, descubra mais sobre nossos produtos e vantagens! Explore tudo a
 
 MENU_MESSAGE = """
 1. **Comprar** 🛒
-2. **Referência** 📑
-3. **Como Funciona** 🛠️
-4. **Diferenças de CCs** 🩸
-5. **Tipos de Material** 📦
-6. **Dicas** 💡
-7. **Garantias** 🔒
-8. **É Seguro?** 🛡️
-9. **Falar com Suporte** 📞
+2. **Troca de Material** 📦
+3. **Referência** 📑
+4. **Como Funciona** 🛠️
+5. **Diferenças de CCs** 🩸
+6. **Tipos de Material** 📦
+7. **Dicas** 💡
+8. **Garantias** 🔒
+9. **É Seguro?** 🛡️
+10. **Falar com Suporte** 📞
 
 **Escolha a opção correspondente digitando o número e enviarei mais informações detalhadas!**
 
-Se precisar de assistência em qualquer momento, basta digitar "Falar com atendente" e um de nossos especialistas estará aqui para te ajudar! 🚀
 """
 
-# Respostas para cada opção, com instruções para retornar ao menu principal
 OPTION_RESPONSES = {
     "1": """
 **❓ Como Comprar? 🛒**
@@ -47,15 +43,34 @@ Se tiver dúvidas sobre como funciona, nossas referências, dicas de uso e muito
 Escreva "Menu" para retornar ao menu principal.
 """,
     "2": """
-**📑 Referências**
+📦 **Troca de Material** 📦
 
-Confira nosso canal com as referências do nosso material: @ElitePRO_Store. Pode observar que todo dia temos muitas referências de nosso material. Venha comprovar e fazer a compra que tanto deseja. Também temos vários grupos no Telegram, totalizando mais de 100.000 pessoas! 🎉
+🔔 **Atenção, Cliente!** 🔔 Se você adquiriu uma CC e encontrou algum defeito, relaxe! Estamos aqui para garantir que você receba exatamente o que comprou, sem dores de cabeça. 🚀
+
+**Prazos de Troca:**
+- **20 minutos** para CCs com garantia de débito, full e saldo.
+- **25 minutos** para CCs com garantia de saldo.
+
+**Instruções para Solicitar a Troca:**
+1. 📹 **Faça um vídeo simples** comprando qualquer curso na Hotmart ou o valor mínimo da garantia de saldo.
+2. 📧 **Envie-nos a gravação** junto com o material que deseja trocar.
+
+**Fácil, não é?** 😃 Após isso, nossa equipe de suporte ágil e dedicada confirmará sua solicitação e, rapidamente, você receberá um material **novo e testado manualmente**. Assim, você tem a certeza de que está obtendo exatamente o que contratou, pronto para uso imediato. 🎯🛡️
 
 ---
 
 Escreva "Menu" para retornar ao menu principal.
 """,
     "3": """
+**📑 Referências**
+
+Confira nosso canal com as referências do nosso material: @ElitePRO_Store. Pode observar que todo dia temos muitas referências de nosso material. Venha comprovar e fazer a compra que tanto deseja 🎉
+
+---
+
+Escreva "Menu" para retornar ao menu principal.
+""",
+    "4": """
 **🔧 Como Funciona?**
 
 CCs são cartões clonados que você pode usar na hora de fazer a compra, utilizando a modalidade de pagamento de cartão de crédito, principalmente em compras online, mas podendo ser usadas pessoalmente também, desde que permitam inserir os dados do cartão. 
@@ -73,27 +88,30 @@ Nosso bot automático está sempre funcionando, então você pode realizar suas 
 
 Escreva "Menu" para retornar ao menu principal.
 """,
-    "4": """
+    "5": """
 **💳 Diferenças de CCs** 🩸
 
-Níveis e limites dos cartões:
+Níveis de cartões e seus limites 💳
 
-- 🏛 **Classic**: Limite máximo de R$150 a R$180.
-- ♨️ **Standard**: Limite máximo de R$200 a R$250.
-- 👑 **Gold**: Limite máximo de R$400 a R$470.
-- 🪙 **Platinum**: Limite máximo de R$600 a R$700.
-- 🪢 **Elo**: Limite máximo de R$800 a R$850.
-- 💎 **Business**: Limite máximo de R$1000.
-- ♾ **Black/Infinite**: Limite inicial de R$1000 (sem limite máximo).
+⚠️ INFOCC/CC NÃO SE SABE O SALDO, APENAS O NÍVEL E O LIMITE DO CARTÃO ⚠️
 
-🩸 Pode haver variações de saldo nos infocc/cc. 
+🏛 Classic: Limite máximo de R$150 a R$180.
+♨️ Standard: Limite máximo de R$200 a R$250.
+👑 Gold: Limite máximo de R$400 a R$470.
+🪙 Platinum: Limite máximo de R$600 a R$700.
+🪢 Elo: Limite máximo de R$800 a R$850.
+💎 Business: Limite máximo de R$1000.
+♾ Black/Infinite: Limite inicial de R$1000 (sem limite máximo).
+🩸 Lembrando que pode ter mais ou menos saldo nas infocc/cc!
+
+-> Compre suas infocc aqui: @ElitePRO_Store_Bot 💳 💖
 
 ---
 
 Escreva "Menu" para retornar ao menu principal.
 """,
-    "5": """
-**Tipos de Material** 📦
+    "6": """
+**💳Informações sobre CCs** 📦
 
 Trabalhamos com os seguintes tipos de material:
 
@@ -106,7 +124,7 @@ Trabalhamos com os seguintes tipos de material:
 
 Escreva "Menu" para retornar ao menu principal.
 """,
-    "6": """
+    "7": """
 **💡 Dicas**
 
 Temos um canal de dicas personalizadas: [ElitePROCC_Dicas](https://t.me/ElitePROCC_Dicas). Saiba todas as informações sobre CCs, segurança, dicas para aprovação e muito mais! 🌟
@@ -115,7 +133,7 @@ Temos um canal de dicas personalizadas: [ElitePROCC_Dicas](https://t.me/ElitePRO
 
 Escreva "Menu" para retornar ao menu principal.
 """,
-    "7": """
+    "8": """
 **🔒 Garantias**
 
 Nós garantimos todo nosso material, entregando LIVE e com garantia de funcionamento. Conheça os tipos de material:
@@ -129,7 +147,7 @@ Nós garantimos todo nosso material, entregando LIVE e com garantia de funcionam
 
 Escreva "Menu" para retornar ao menu principal.
 """,
-    "8": """
+    "9": """
 **🔐 Segurança ao Usar CCs**
 
 Uma pergunta frequente é: **É perigoso fazer aprovação?**
@@ -151,7 +169,7 @@ Ainda assim, pode haver problemas com valores baixos? SIM. Um exemplo é você f
 
 Escreva "Menu" para retornar ao menu principal.
 """,
-    "9": """
+    "10": """
 **Falar com Suporte** 📞
 
 Um atendente humano estará disponível em breve para te ajudar. 🚀

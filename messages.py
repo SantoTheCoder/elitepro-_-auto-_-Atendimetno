@@ -28,14 +28,26 @@ MENU_MESSAGE = """
 
 OPTION_RESPONSES = {
     "1": """
-**❓ Como Comprar? 🛒**
+**Garanta Seus Produtos de Alta Qualidade Agora!** 🛒✨
 
-É muito simples! Somos os maiores e melhores vendedores de CCs do Brasil, com mais de 100.000 unidades vendidas! 🇧🇷✨
+Adquira produtos de alta qualidade com total segurança! 🌟 Somos líderes em vendas de CCs no Brasil com mais de 100.000 unidades vendidas! 🇧🇷✨ Confiança e praticidade em cada compra! 😎
 
-Você pode adquirir seu material com garantia de qualidade absoluta através do nosso bot @ElitePRO_Store_Bot. Para começar, escreva **/start** no bot e, para adicionar saldo, digite: **/recarga "valor"**. Exemplo: **/recarga 50** para uma recarga de R$50. 📱💳
+**Passos Simples para Comprar:**
 
-Se tiver dúvidas sobre como funciona, nossas referências, dicas de uso e muito mais, basta escrever **Menu** e selecionar a opção desejada. ✅
+**1. Inicie a Compra:**
+Acesse nosso bot exclusivo: [@ElitePRO_Store_Bot](https://t.me/ElitePRO_Store_Bot) e comece a explorar! 🤖💬
 
+**2. Adicione Saldo:**
+Use o comando `/recarga` seguido do valor desejado. Exemplo: `/recarga 50` para adicionar R$50 na hora! 📱💳 Simples e rápido, do jeito que você gosta!
+
+**3. Saiba Mais:**
+Confira a mensagem fixada no chat para referências e dicas de uso. Aprenda e aproveite ao máximo! ✅📌
+
+⏳ **Não Perca Tempo!** ⏳
+Acesse [@ElitePRO_Store_Bot](https://t.me/ElitePRO_Store_Bot) agora mesmo e garanta seus produtos com a melhor qualidade do mercado! 🚀🔝
+
+**Pronto para começar?**
+Digite `/start` no bot agora e aproveite! 🏃💨
 ========================
 """,
     "2": """
@@ -52,7 +64,6 @@ Se tiver dúvidas sobre como funciona, nossas referências, dicas de uso e muito
 2. 📧 **Envie-nos a gravação** junto com o material que deseja trocar.
 
 **Fácil, não é?** 😃 Após isso, nossa equipe de suporte ágil e dedicada confirmará sua solicitação e, rapidamente, você receberá um material **novo e testado manualmente**. Assim, você tem a certeza de que está obtendo exatamente o que contratou, pronto para uso imediato. 🎯🛡️
-
 ========================
 """,
     "3": """
@@ -60,9 +71,12 @@ Se tiver dúvidas sobre como funciona, nossas referências, dicas de uso e muito
 
 🎉 **Descubra as Referências do Nosso Material!** 🎉
 
-Acesse nosso canal 👉 **[ElitePRO_Store](https://t.me/ElitePRO_Store)** 👈 e veja por si mesmo as inúmeras referências de nossos produtos! 📦✨ Todos os dias, compartilhamos feedbacks e avaliações de clientes satisfeitos. Não perca a oportunidade de comprovar a qualidade e a confiabilidade do nosso material. Venha, faça a compra que você tanto deseja e junte-se aos nossos clientes felizes! 🚀💳
+Acesse nosso canal 👉 **[ElitePRO_Store](https://t.me/ElitePRO_Store)** 👈 e veja por si mesmo as inúmeras referências de nossos produtos! 📦✨
 
-========================
+Todos os dias, compartilhamos feedbacks e avaliações de clientes satisfeitos. 💬⭐
+
+**Não perca a oportunidade de comprovar a qualidade e a confiabilidade do nosso material. Venha, faça a compra que você tanto deseja e junte-se aos nossos clientes felizes!** 🚀💳
+
 """,
     "4": """
 🔧 **Como Funciona?**
@@ -93,7 +107,6 @@ Escolha o nível de cartão que melhor se adapta às suas necessidades financeir
 🩸 **Importante!** Lembrando que pode ter mais ou menos saldo nas infocc/cc!
 
 👉 **Compre suas infocc aqui:** [@ElitePRO_Store_Bot](https://t.me/ElitePRO_Store_Bot) 💳 💖
-
 ========================
 """,
     "5": """
@@ -102,34 +115,36 @@ Escolha o nível de cartão que melhor se adapta às suas necessidades financeir
 🌟 **Aproveite Nossas Dicas Personalizadas!** 🌟
 
 Acesse nosso canal de dicas personalizadas 👉 **[ElitePROCC_Dicas](https://t.me/ElitePROCC_Dicas)** 👈 e fique por dentro de todas as informações sobre CCs, segurança, dicas para aprovação e muito mais! Não perca essa oportunidade de aprimorar seus conhecimentos e garantir sucesso em suas compras! 📚💡
-
 ========================
 """,
     "6": """
-**🔐 Segurança ao Usar CCs**
+ **🔐 Segurança ao Usar CCs**
 
-Uma pergunta frequente é: **É perigoso fazer aprovação?**
+**Uma pergunta frequente é: É perigoso fazer aprovação? 🚀**
 
-A resposta é: **DEPENDE**. 🚀 Se o titular contestar a compra, o banco pode investigar e pode ser ressarcido. O banco vai cruzar informações diversas como:
+**A resposta é: DEPENDE.** Aqui está o que você precisa saber:
 
-- ⚠ Titular não costuma fazer compras naquele site.
-- ⚠ Titular não costuma fazer compras daquele valor.
-- ⚠ Titular não costuma fazer compras online.
-- ⚠ Titular não costuma fazer compras internacionais.
-- ⚠ Titular não costuma fazer compras naquele horário.
-- ⚠ Titular nunca utiliza mais de 80% do limite do cartão de crédito.
+🔍 Se o titular contestar a compra, o banco pode investigar e ressarcir o valor. O banco pode cruzar informações diversas, como:
 
-O banco geralmente pede investigação junto à polícia quando a fraude é grande, ou seja, estamos falando de aprovações diversas de valores altos acima dos 20 mil reais. 
+- 📌 Titular não costuma fazer compras naquele site.
+- 📌 Titular não costuma fazer compras daquele valor.
+- 📌 Titular não costuma fazer compras online.
+- 📌 Titular não costuma fazer compras internacionais.
+- 📌 Titular não costuma fazer compras naquele horário.
+- 📌 Titular nunca utiliza mais de 80% do limite do cartão de crédito.
 
-Ainda assim, pode haver problemas com valores baixos? SIM. Um exemplo é você fazer várias compras no iFood sempre no mesmo restaurante, com cartões diversos. O restaurante saberá dos estornos. Isso não será bom para você. Evite comprar sempre no mesmo lugar e com muita frequência. Isso se chama DROP QUEIMADO.
+💡 **Investigações**: O banco geralmente pede investigação junto à polícia quando a fraude envolve valores altos, acima de R$20.000. 
 
+💭 **Problemas com valores baixos?** SIM. Um exemplo é fazer várias compras no iFood sempre no mesmo restaurante, com cartões diversos. O restaurante notará os estornos. Evite comprar sempre no mesmo lugar e com muita frequência. Isso se chama **DROP QUEIMADO**.
+
+
+Com essas informações, você estará mais tranquilo para usar CCs
 ========================
 """,
     "7": """
 **Falar com Suporte** 📞                                                                              
 
 **Um atendente humano estará disponível em breve para te ajudar.** 🚀
-
 ========================
 """
 }

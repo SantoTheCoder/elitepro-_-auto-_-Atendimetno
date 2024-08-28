@@ -1,13 +1,13 @@
-#utils.py
 from datetime import datetime, timedelta
-import logging  # Certifique-se de que o módulo logging esteja importado
+import logging
 from config import SUPPORT_IDS
+from telethon.tl.types import User
 
 # Dicionário para armazenar a última interação com o menu para cada usuário
 user_last_interaction = {}
 user_last_message_id = {}  # Armazena o ID da última mensagem enviada pelo bot
-user_fixed_menu_id = {}  # Novo dicionário para armazenar o ID do menu fixo
-user_last_option_message_id = {}  # Novo dicionário para armazenar o ID da última mensagem de opção do menu
+user_fixed_menu_id = {}  # Dicionário para armazenar o ID do menu fixo
+user_last_option_message_id = {}  # Dicionário para armazenar o ID da última mensagem de opção do menu
 
 # Configurações do reset
 RESET_INTERVAL = timedelta(hours=24)
@@ -24,6 +24,20 @@ def is_message_from_support(event):
     Função para verificar se a mensagem foi enviada pelo suporte, com base na lista configurável de IDs.
     """
     return event.sender_id in SUPPORT_IDS
+
+async def is_personal_contact(client, user_id):
+    """
+    Verifica se o usuário é um contato pessoal do bot.
+    """
+    try:
+        contacts = await client.get_contacts()
+        for contact in contacts:
+            if isinstance(contact, User) and contact.id == user_id:
+                return True
+        return False
+    except Exception as e:
+        logging.error(f"Erro ao verificar se o usuário é um contato pessoal: {e}")
+        return False
 
 def track_last_message(user_id, message_id):
     """

@@ -1,4 +1,3 @@
-#handlers.py
 import logging
 from telethon import events
 from telethon.tl.types import User
@@ -7,6 +6,7 @@ from menu import show_menu, handle_menu_option
 from utils import (
     check_reset,
     is_message_from_support,
+    is_personal_contact,
     track_last_message,
     delete_last_message,
     track_fixed_menu,
@@ -19,9 +19,9 @@ def register_handlers(client):
     async def handle_message(event):
         logging.info(f"Nova mensagem recebida de {event.sender_id}: {event.message.message}")
 
-        # Ignora mensagens enviadas pelo suporte ou que não são de usuários
-        if is_message_from_support(event) or not await is_user_message(event):
-            logging.info("Mensagem de bot, canal, ou grupo ignorada.")
+        # Verifica se a mensagem é de um contato pessoal, do suporte, ou não é de um usuário
+        if is_message_from_support(event) or await is_personal_contact(client, event.sender_id) or not await is_user_message(event):
+            logging.info("Mensagem de bot, canal, grupo ou contato pessoal ignorada.")
             return
 
         user_id = event.sender_id

@@ -1,3 +1,4 @@
+#utils.py
 from datetime import datetime, timedelta
 import logging
 from config import SUPPORT_IDS
@@ -15,7 +16,7 @@ spam_blocked_users = {}  # Dicionário para armazenar usuários bloqueados tempo
 RESET_INTERVAL = timedelta(hours=24)
 SPAM_INTERVAL = timedelta(minutes=1)  # Intervalo para considerar o spam (1 minuto)
 SPAM_THRESHOLD = 10  # Número de mensagens permitido dentro do intervalo
-SPAM_BLOCK_TIME = timedelta(minutes=5)  # Tempo de bloqueio por spam (5 minutos)
+SPAM_BLOCK_TIME = timedelta(minutes=1)  # Tempo de bloqueio por spam (5 minutos)
 
 def check_reset(user_id):
     now = datetime.now()

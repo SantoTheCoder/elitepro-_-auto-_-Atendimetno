@@ -8,9 +8,14 @@ user_last_interaction = {}
 user_last_message_id = {}  # Armazena o ID da última mensagem enviada pelo bot
 user_fixed_menu_id = {}  # Dicionário para armazenar o ID do menu fixo
 user_last_option_message_id = {}  # Dicionário para armazenar o ID da última mensagem de opção do menu
+user_message_timestamps = {}  # Dicionário para armazenar os timestamps das mensagens dos usuários
+spam_blocked_users = {}  # Dicionário para armazenar usuários bloqueados temporariamente por spam
 
 # Configurações do reset
 RESET_INTERVAL = timedelta(hours=24)
+SPAM_INTERVAL = timedelta(minutes=1)  # Intervalo para considerar o spam (1 minuto)
+SPAM_THRESHOLD = 10  # Número de mensagens permitido dentro do intervalo
+SPAM_BLOCK_TIME = timedelta(minutes=5)  # Tempo de bloqueio por spam (5 minutos)
 
 def check_reset(user_id):
     now = datetime.now()
@@ -96,3 +101,34 @@ def get_fixed_menu_id(user_id):
     Retorna o ID da mensagem do menu fixo.
     """
     return user_fixed_menu_id.get(user_id)
+
+def is_spam(user_id):
+    """
+    Verifica se o usuário enviou mensagens em excesso em um curto período de tempo (filtro de spam).
+    """
+    now = datetime.now()
+
+    # Limpa as entradas antigas do dicionário de bloqueio por spam
+    if user_id in spam_blocked_users:
+        block_time = spam_blocked_users[user_id]
+        if now - block_time > SPAM_BLOCK_TIME:
+            del spam_blocked_users[user_id]  # Remove bloqueio se o tempo expirou
+
+    # Se o usuário está atualmente bloqueado por spam, retorna True
+    if user_id in spam_blocked_users:
+        return True
+
+    # Adiciona o timestamp da mensagem ao histórico do usuário
+    if user_id not in user_message_timestamps:
+        user_message_timestamps[user_id] = []
+    user_message_timestamps[user_id].append(now)
+
+    # Remove timestamps antigos (fora do intervalo de 1 minuto)
+    user_message_timestamps[user_id] = [timestamp for timestamp in user_message_timestamps[user_id] if now - timestamp <= SPAM_INTERVAL]
+
+    # Verifica se o usuário excedeu o limite de mensagens permitidas
+    if len(user_message_timestamps[user_id]) > SPAM_THRESHOLD:
+        spam_blocked_users[user_id] = now  # Bloqueia o usuário temporariamente
+        return True
+
+    return False

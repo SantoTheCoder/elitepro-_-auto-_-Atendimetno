@@ -30,7 +30,7 @@ OPTION_RESPONSES = {
     "1": """
 **Garanta Seus Produtos de Alta Qualidade Agora!** 🛒✨
 
-Adquira produtos de alta qualidade com total segurança! 🌟 Somos líderes em vendas de CCs no Brasil com mais de 100.000 unidades vendidas! 🇧🇷✨ Confiança e praticidade em cada compra! 😎
+Adquira produtos de alta qualidade com total segurança! 🌟 Somos líderes em vendas de CCs no Brasil! 🇧🇷✨ Confiança e praticidade em cada compra! 😎
 
 **Passos Simples para Comprar:**
 

@@ -7,6 +7,7 @@ from utils import (
     check_reset,
     is_message_from_support,
     is_personal_contact,
+    is_spam,  # Importa a função de verificação de spam
     track_last_message,
     delete_last_message,
     track_fixed_menu,
@@ -17,14 +18,20 @@ from utils import (
 def register_handlers(client):
     @client.on(events.NewMessage)
     async def handle_message(event):
-        logging.info(f"Nova mensagem recebida de {event.sender_id}: {event.message.message}")
+        user_id = event.sender_id  # Certifica-se de que o user_id é obtido logo no início
+        logging.info(f"Nova mensagem recebida de {user_id}: {event.message.message}")
 
-        # Verifica se a mensagem é de um contato pessoal, do suporte, ou não é de um usuário
-        if is_message_from_support(event) or await is_personal_contact(client, event.sender_id) or not await is_user_message(event):
-            logging.info("Mensagem de bot, canal, grupo ou contato pessoal ignorada.")
+        # Verifica se a mensagem é de spam, contato pessoal, suporte, ou não é de um usuário
+        if is_spam(user_id):
+            logging.info(f"Usuário {user_id} bloqueado temporariamente por spam.")
             return
 
-        user_id = event.sender_id
+        if is_message_from_support(event) or await is_personal_contact(client, user_id) or not await is_user_message(event):
+            logging.info("Mensagem de bot, canal, grupo ou contato pessoal ignorada.")
+            return
+        
+        user_id = event.sender_id  # Certifica-se de que o user_id é obtido logo no início
+
 
         # Excluir a última mensagem do bot, se existir (exceto o menu fixo)
         await delete_last_message(client, user_id)

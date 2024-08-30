@@ -13,7 +13,8 @@ from utils import (
     delete_last_message,
     track_fixed_menu,
     get_fixed_menu_id,
-    track_last_option_message
+    track_last_option_message,
+    is_private_chat  # Nova função para verificar se é um chat privado
 )
 
 def register_handlers(client):
@@ -21,6 +22,11 @@ def register_handlers(client):
     async def handle_message(event):
         user_id = event.sender_id  # Certifica-se de que o user_id é obtido logo no início
         logging.info(f"Nova mensagem recebida de {user_id}: {event.message.message}")
+
+        # Verifica se a mensagem é de um chat privado
+        if not is_private_chat(event):
+            logging.info(f"Mensagem de {user_id} ignorada pois não é um chat privado.")
+            return
 
         # Verifica se a mensagem é de spam, contato pessoal, suporte, ou não é de um usuário
         if is_spam(user_id):
@@ -30,9 +36,8 @@ def register_handlers(client):
         if is_message_from_support(event) or await is_personal_contact(client, user_id) or not await is_user_message(event):
             logging.info("Mensagem de bot, canal, grupo ou contato pessoal ignorada.")
             return
-        
-        user_id = event.sender_id  # Certifica-se de que o user_id é obtido logo no início
 
+        user_id = event.sender_id  # Certifica-se de que o user_id é obtido logo no início
 
         # Excluir a última mensagem do bot, se existir (exceto o menu fixo)
         await delete_last_message(client, user_id)

@@ -2,7 +2,7 @@
 from datetime import datetime, timedelta
 import logging
 from config import SUPPORT_IDS
-from telethon.tl.types import User
+from telethon.tl.types import User, PeerUser, PeerChat, PeerChannel
 
 # Dicionário para armazenar a última interação com o menu para cada usuário
 user_last_interaction = {}
@@ -34,16 +34,18 @@ def is_message_from_support(event):
 async def is_personal_contact(client, user_id):
     """
     Verifica se o usuário é um contato pessoal do bot.
+    Utiliza o método `get_entity` como alternativa ao `get_contacts`.
     """
     try:
-        contacts = await client.get_contacts()
-        for contact in contacts:
-            if isinstance(contact, User) and contact.id == user_id:
-                return True
-        return False
+        # Usa `get_entity` para obter informações sobre o usuário
+        entity = await client.get_entity(user_id)
+        
+        # Verifica se a entidade é um usuário e não um bot
+        return isinstance(entity, User) and not entity.bot
     except Exception as e:
         logging.error(f"Erro ao verificar se o usuário é um contato pessoal: {e}")
         return False
+
 
 def track_last_message(user_id, message_id):
     """
@@ -133,3 +135,9 @@ def is_spam(user_id):
         return True
 
     return False
+
+def is_private_chat(event):
+    """
+    Verifica se a mensagem foi enviada em um chat privado (PeerUser).
+    """
+    return isinstance(event.message.peer_id, PeerUser)

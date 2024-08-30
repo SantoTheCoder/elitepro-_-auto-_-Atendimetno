@@ -1,4 +1,3 @@
-#menu.py
 import logging
 from messages import MENU_MESSAGE, OPTION_RESPONSES
 from utils import delete_last_message, track_last_message, track_last_option_message
@@ -9,9 +8,10 @@ KEYWORDS = {
     "2": ["2", "troca", "trocar", "material", "📦", "Troca de Material 📦"],
     "3": ["3", "referencia", "referências", "referência", "📑", "Referência 📑"],
     "4": ["4", "como funciona", "funcionamento", "como", "funciona", "🛠️", "Como Funciona 🛠️"],
-    "5": ["5", "dicas", "dica", "💡", "Dicas 💡"],
-    "6": ["6", "seguro", "segurança", "é seguro?", "é seguro", "🔐", "É Seguro? 🔐"],
-    "7": ["7", "falar com suporte", "suporte", "atendimento", "📞", "Falar com Suporte 📞"]
+    "5": ["5", "grupo de doações", "doações", "grupo", "💳", "Grupo de Doações 💳"],
+    "6": ["6", "dicas", "dica", "💡", "Dicas 💡"],
+    "7": ["7", "seguro", "segurança", "é seguro?", "é seguro", "🔐", "É Seguro? 🔐"],
+    "8": ["8", "falar com suporte", "suporte", "atendimento", "📞", "Falar com Suporte 📞"]
 }
 
 async def show_menu(event):

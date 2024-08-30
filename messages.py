@@ -1,4 +1,3 @@
-# messages.py
 WELCOME_MESSAGE = """
 Bom dia, {}! 🦾
 
@@ -18,9 +17,10 @@ MENU_MESSAGE = """
 2. **Troca de Material** 📦
 3. **Referência** 📑
 4. **Como Funciona?** 🔧
-5. **Dicas** 💡
-6. **É Seguro?** 🛡️
-7. **Falar com Suporte** 📞
+5. **Grupo de Doações** 💳
+6. **Dicas** 💡
+7. **É Seguro?** 🛡️
+8. **Falar com Suporte** 📞
 
 **Escolha a opção correspondente digitando o número e enviarei mais informações detalhadas!**
 
@@ -47,7 +47,6 @@ Confira a mensagem fixada no chat para referências e dicas de uso. Aprenda e ap
 Acesse [@ElitePRO_Store_Bot](https://t.me/ElitePRO_Store_Bot) agora mesmo e garanta seus produtos com a melhor qualidade do mercado! 🚀🔝
 
 **Pronto para começar?**
-Digite `/start` no bot agora e aproveite! 🏃💨
 ========================
 """,
     "2": """
@@ -110,6 +109,23 @@ Escolha o nível de cartão que melhor se adapta às suas necessidades financeir
 ========================
 """,
     "5": """
+💳 **DOAÇÕES DIÁRIAS!** 💳
+
+🚀 **Receba Combos de CCs e Mix Grátis** no nosso exclusivo Grupo VIP! Não vai querer ficar de fora dessa, né?
+
+**Como Participar é Moleza:**
+1. **Arraste pra Cima!** 👆
+2. **Compre qualquer CC** e envie a referência para o @SUPORTE_ELITEPRO.
+
+**Benefícios Exclusivos:**
+
+✨ Acesso ao **Grupo VIP de Doações da Semana** com doações às segundas, quartas e sextas às 22:00.
+🎁 Link do nosso **Grupo Privado com Bot de Puxadas Completo**.
+
+**Não perca tempo! Junte-se ao grupo com o melhor material da net!** ⭐️🏆
+========================
+""",
+    "6": """
 **💡 Dicas**
 
 🌟 **Aproveite Nossas Dicas Personalizadas!** 🌟
@@ -117,7 +133,7 @@ Escolha o nível de cartão que melhor se adapta às suas necessidades financeir
 Acesse nosso canal de dicas personalizadas 👉 **[ElitePROCC_Dicas](https://t.me/ElitePROCC_Dicas)** 👈 e fique por dentro de todas as informações sobre CCs, segurança, dicas para aprovação e muito mais! Não perca essa oportunidade de aprimorar seus conhecimentos e garantir sucesso em suas compras! 📚💡
 ========================
 """,
-    "6": """
+    "7": """
  **🔐 Segurança ao Usar CCs**
 
 **Uma pergunta frequente é: É perigoso fazer aprovação? 🚀**
@@ -141,7 +157,7 @@ Acesse nosso canal de dicas personalizadas 👉 **[ElitePROCC_Dicas](https://t.m
 Com essas informações, você estará mais tranquilo para usar CCs
 ========================
 """,
-    "7": """
+    "8": """
 **Falar com Suporte** 📞                                                                              
 
 **Um atendente humano estará disponível em breve para te ajudar.** 🚀
